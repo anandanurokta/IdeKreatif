@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION['notification'] = [
                 'type' => 'danger',
-                'message' => 'Gagal Registrasi: ' . mysqli_error($conn)   
+                'message' => 'Gagal Registrasi: ' . mysqli_error($conn) 
             ];
         }
         header('Location: login.php');
