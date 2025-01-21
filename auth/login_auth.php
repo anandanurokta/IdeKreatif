@@ -18,18 +18,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["role"] = $row["role"];
             $_SESSION["user_id"] = $row["user_id"];
             
-            $_SESSION["notification"] = [
-                "type" => "primary",
-                "message" => "Selamat Datang Kembali!"
+            $_SESSION['notification'] = [
+                'type' => 'primary',
+                'message' => 'Selamat Datang Kembali!'
             ];
             
-            header("Location: ../dashboard.php");
+            header('Location: ../dashboard.php');
             exit();
         } else {
             
-            $_SESSION["notification"] = [
-                "type" => "danger",
-                "message" => "Username atau Password salah"
+            $_SESSION['notification'] = [
+                'type' => 'danger',
+                'message' => 'Username atau Password salah'
             ];
         }
     } else {
