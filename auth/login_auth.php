@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["role"] = $row["role"];
             $_SESSION["user_id"] = $row["user_id"];
             // Set notifikasi selamat datang
-            $_SESSION["notification"] = [
+            $_SESSION['notification'] = [
                 'type' => 'primary',
                 'message' => 'Selamat Datang Kembali!'
             ];
@@ -27,21 +27,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Password salah
-            $_SESSION["notification"] = [
+            $_SESSION['notification'] = [
                 'type' => 'danger',
                 'message' => 'Username atau Password salah'
             ];
         }   
-} else {
-    // Username tidak ditemukan
-    $_SESSION['notification'] = [
-        'type' => 'danger',
-        'message' => 'Username atau Password salah'
-    ];
-}
+        } else {
+            // Username tidak ditemukan
+            $_SESSION['notification'] = [
+                'type' => 'danger',
+                'message' => 'Username atau Password salah'
+            ];
+        }
 
     header('Location: login.php');
     exit();
 }
 $conn->close();
-?>
