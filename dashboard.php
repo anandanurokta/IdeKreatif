@@ -62,15 +62,15 @@ class="dropdown-item">
 <i class="bx bx-edit-alt me-2"></i> Edit
 </a>
 <!-- Pilihan Delet -->
- <a href="#" class="dropdown-item" data-bs-toggle="modal"data-bs-target="deletPost_<?= $post['id_post']; ?>">
-    <i class="bx bx--trash me-2"></i> Delete
+ <a href="#" class="dropdown-item" data-bs-toggle="modal"data-bs-target="#deletePost_<?= $post['id_post']; ?>">
+    <i class="bx bx-trash me-2"></i> Delete
 </a>
 </div>   
 </div>
 </td>
 </tr>
 <!-- Modal untuk Hapus konten Blog -->
-      <div class="modal fade" id="deletePost_<?=$post['id_post'];?>"tabinex="-1" aria-hidden="true">
+      <div class="modal fade" id="deletePost_<?=$post['id_post'];?>"tabindex="-1" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

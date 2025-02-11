@@ -1,6 +1,6 @@
 <?php
 // Menghubungkan file konfigurasi database
-include 'conpig.php';
+include 'config.php';
 
 // Memulai sesi PHP
 session_start();
@@ -16,23 +16,23 @@ if (isset($_POST['simpan'])) {
     $categoryId = $_POST["category_id"]; // ID kategori
 
     // Mengatur direktori penyimpanan file gambar
-    $imageDir = "asset/img/uplodad/";
+    $imageDir = "assets/img/uploads/";
     $imageName = $_FILES["image"]["name"]; // Nama file gambar
     $imagePath = $imageDir . basename($imageName); // path lengkap gambar
     
     // Memindahkan file gambar yang diunggah ke direktori tujuan
-    if (move_uploaded_file($_FILES["image"]["tmp_name"],$imagePath)) {
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
         // Jika unggahan berhasil, masukkan
         // data postingan ke dalam database
         $query = "INSERT INTO posts (post_title, content,
          created_at, category_id, user_id, image_path) VALUES
-        ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagepath'";
+        ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagePath')";
 
 if ($conn->query($query) === TRUE) {
     // Notifikasi berhasil jika postingan berhasil ditambahkan
     $_SESSION['notification'] = [
         'type' => 'primary',
-        'message' => 'Post successfully addec.'
+        'message' => 'Post successfully added.'
     ];
 } else {
     // Notifikasi error jika gagal menambahkan postingan
@@ -60,7 +60,7 @@ if (isset($_POST['delete'])) {
     $postID = $_POST['postID'];
     
     // Query untuk menghapus post berdasarkan ID
-    $exec = mysqli_query($conn, "DELETE FROM post WHERE id_post='$postID");
+    $exec = mysqli_query($conn, "DELETE FROM posts WHERE id_post='$postID'");
 
     // Menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {

@@ -18,7 +18,7 @@ include '.includes/toast_notification.php';
 
           <div class="card-body">
             <div class="table-responsive text-nowrap">
-              <table id="datable" class="table-hover">
+              <table id="datatable" class="table-hover">
                 <thead>
                 <tr class="text-center">
                     <th widt="50px">#</th>
@@ -31,7 +31,7 @@ include '.includes/toast_notification.php';
                    <?php
                    $index = 1;
                    $query = "SELECT*FROM CATEGORIES";
-                   $exec = mysqli_query($conn, query);
+                   $exec = mysqli_query($conn, $query);
                    while ($category = mysqli_fetch_assoc($exec)) :
                    ?>
                    <tr>
@@ -41,23 +41,20 @@ include '.includes/toast_notification.php';
 <td>
     <!--Dropdown untuk opsi edit dan delete-->
     <div class="dropdown">
-        <button type="button" class="btn p-0 dropdown-toggle 
-         hide-arrow" data-bs-toggel "dropdown">
+        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle= "dropdown">
         <i class="bx bx-dots-vertical-rounded"></i>
     </button>
     <div class="dropdown-menu">
-        <a href="#" class="dropdown-item" data-bs-toggle="modal"
-        data-bs-target="#editCategory_<?= $category['category_id']; ?>">
+        <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editCategory_<?= $category['category_id']; ?>">
         <i class="bx bx-edit-alt me-2"></i> Edit </a>
-        <a href="#" class="dropdown-item" data-bs-toggel="modal"
-        data-bs-target="#deleteCategory_<?= $category['category_id']; ?>">
+        <a href="#" class="dropdown-item" data-bs-toggel="modal" data-bs-target="#deleteCategory_<?= $category['category_id']; ?>">
         <i class="bx bx-trash me-2"></i> Delete </a>
     </div>
   </div>
 </td>
                     </tr>
                     <!-- Modal untuk Hapus Data Kategori -->
-<div class="modal fade" id="deleteCategory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="deleteCategory_<?= $category['category_id'];?>" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -125,7 +122,7 @@ include '.includes/toast_notification.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal"><buttton>
        </div>
        <div class="modal-body">
-        <form action="proces_kategori.php" method="POST">
+        <form action="proses_kategori.php" method="POST">
           <div>
             <label for="namaKategori" class="form-label">Nama Kategori</label>
             <!--Input untuk nama kategorib baru-->
